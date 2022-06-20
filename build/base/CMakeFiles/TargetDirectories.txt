@@ -1,0 +1,3 @@
+D:/Dropbox/projects/code/monotextdisplay/build/base/CMakeFiles/monotextdisplay.dir
+D:/Dropbox/projects/code/monotextdisplay/build/base/CMakeFiles/ALL_BUILD.dir
+D:/Dropbox/projects/code/monotextdisplay/build/base/CMakeFiles/ZERO_CHECK.dir
