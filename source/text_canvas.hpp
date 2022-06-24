@@ -49,6 +49,8 @@ class TextCanvas {
 
         size_t get_num_columns();
         void fill(const char fill_char);
+        void column_num_fill();
+        void row_num_fill();
         void print();
     };
 

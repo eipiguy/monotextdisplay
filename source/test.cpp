@@ -16,11 +16,24 @@ int main(int argc, char* argv[]){
     main_canvas.active_tiles.push_back(&test_tile);
     cout << "Main canvas tile has " << main_canvas.active_tiles[0]->get_num_columns() << " columns" << endl;
 
-    cout << "Printing blank test tile from (0,0) to (48,48)" << endl;
+    cout << "Printing blank test tile from (0,0) to (48,48):" << endl;
     test_tile.print();
+    cout << endl;
 
+    cout << "Filling with period character and printing:" << endl;
     test_tile.fill('.');
     test_tile.print();
+    cout << endl;
+
+    cout << "Filling columns with digits and printing:" << endl;
+    test_tile.column_num_fill();
+    test_tile.print();
+    cout << endl;
+
+    cout << "Filling rows with digits and printing:" << endl;
+    test_tile.row_num_fill();
+    test_tile.print();
+    cout << endl;
 
     return 0;
 }

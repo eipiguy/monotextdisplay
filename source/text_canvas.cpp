@@ -45,9 +45,36 @@ void TextCanvas :: TextTile :: fill(const char fill_char){
     }
 }
 
+void TextCanvas :: TextTile :: column_num_fill(){
+    size_t i = 0, j = 0;
+    for(char &data_char : data){
+        data_char = '0' + j++;
+        if(++i >= num_columns){
+            //clog << "column end. i = " << i << ", j = " << j << endl;
+            i = 0;
+            j = 0;
+        }else if(j>9){
+            j = 0;
+        }
+    }
+}
+
+void TextCanvas :: TextTile :: row_num_fill(){
+    size_t i = 0, j = 0;
+    for(char &data_char : data){
+        data_char = '0' + j;
+        if(++i >= num_columns){
+            i = 0;
+            if(++j > 9){
+                j = 0;
+            }
+        }
+    }
+}
+
 void TextCanvas :: TextTile :: print(){
     for(size_t i=0; i<data.length(); i+=num_columns){
         //clog << "i = " << i << ", num_columns = " << num_columns << endl;
-        cout << data.substr(i,num_columns-1) << endl;
+        cout << data.substr(i,num_columns) << endl;
     }
 }
