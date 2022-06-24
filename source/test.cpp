@@ -1,14 +1,7 @@
-#include <stdio.h>
-#include <string>
-#include <iostream>
 #include "test.hpp"
 
-using std::string;
-
-inline void PrintNullTerminatedString(const char* nullTerminatedString);
-
 int main(int argc, char* argv[]){
-    cout << "Reprinting null terminated command line inputs, each on a separate line:" << endl; 
+    cout << endl << "Reprinting null terminated command line inputs, each on a separate line:" << endl; 
     for(int i=0; i<argc; ++i){
         cout << endl << "argv[" << i << "] =" << endl;
         PrintNullTerminatedString(argv[i]);
@@ -16,14 +9,18 @@ int main(int argc, char* argv[]){
     }
     cout << endl << "End of inputs." << endl;
     cout << endl;
-    cout << "Initializing main canvas and window:" << endl;
+    cout << "Initializing main canvas and test tile:" << endl;
     TextCanvas main_canvas;
-    TextCanvas::Window main_window(
-        TextCanvas::Point(0),
-        TextCanvas::Point(48)
-    );
 
-    main_canvas.active_windows.push_back(&main_window);
+    TextCanvas::TextTile test_tile(TextCanvas::Point(0), 48);
+    main_canvas.active_tiles.push_back(&test_tile);
+    cout << "Main canvas tile has " << main_canvas.active_tiles[0]->get_num_columns() << " columns" << endl;
+
+    cout << "Printing blank test tile from (0,0) to (48,48)" << endl;
+    test_tile.print();
+
+    test_tile.fill('.');
+    test_tile.print();
 
     return 0;
 }

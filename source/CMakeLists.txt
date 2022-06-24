@@ -4,9 +4,8 @@ project(monotextdisplay)
 add_executable(monotextdisplay)
 target_sources(monotextdisplay
     PRIVATE
-    test.hpp
-    test.cpp
-    text_canvas.hpp
-    text_canvas.cpp
-    text_tile.hpp
+        test.hpp
+        test.cpp
+        text_canvas.hpp
+        text_canvas.cpp
 )

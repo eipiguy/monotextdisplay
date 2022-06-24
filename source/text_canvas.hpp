@@ -5,6 +5,8 @@
 
 using std::string;
 using std::cout;
+using std::clog;
+using std::cerr;
 using std::endl;
 
 using std::vector;
@@ -16,30 +18,40 @@ class TextCanvas {
         size_t column = 0;
         size_t row = 0;
 
-        Point(const size_t coordinate_value):
-            column(coordinate_value), row(coordinate_value){}
+        Point(const size_t coordinate_value);
+        Point(
+            const size_t column,
+            const size_t row
+        );
 
-        Point(const size_t column_start, const size_t row_start):
-            column(column_start), row(row_start){}
-        
         bool operator<(const Point &right_hand_side);
     };
 
-    class Window {
+    class TextTile {
         protected:
         Point min = 0;
-        Point max = 0;
+        size_t num_columns = 0;
+        size_t layer_depth = 0;
+        string data;
 
         public:
-        Window(Point point_in):
-            min(point_in), max(point_in){}
+        TextTile(
+            Point min,
+            const size_t square_dimension
+        );
+        TextTile(
+            Point min,
+            const size_t num_columns,
+            const size_t num_rows
+        );
 
-        Window(Point min_in, Point max_in):
-            min(min_in), max(max_in){}
-        
-        class TextTile;
+        string operator[](const size_t row);
+
+        size_t get_num_columns();
+        void fill(const char fill_char);
+        void print();
     };
 
-    vector<Window*> active_windows;
+    vector<TextTile*> active_tiles;
     TextCanvas(){}
 };
