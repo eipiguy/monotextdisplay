@@ -1,14 +1,7 @@
-#include <stdio.h>
-#include <iostream>
 #include <string>
 #include <vector>
 
 using std::string;
-using std::cout;
-using std::clog;
-using std::cerr;
-using std::endl;
-
 using std::vector;
 
 class TextCanvas {
@@ -45,9 +38,11 @@ class TextCanvas {
             const size_t num_rows
         );
 
-        string operator[](const size_t row);
+        char* operator[](const size_t row);
 
+        size_t get_num_rows();
         size_t get_num_columns();
+
         void fill(const char fill_char);
         void column_num_fill();
         void row_num_fill();

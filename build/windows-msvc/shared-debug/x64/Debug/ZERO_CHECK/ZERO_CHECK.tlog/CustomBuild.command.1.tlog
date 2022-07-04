@@ -1,0 +1,10 @@
+^D:\DROPBOX\PROJECTS\CODE\MONOTEXTDISPLAY\BUILD\WINDOWS-MSVC\SHARED-DEBUG\CMAKEFILES\F374882E2CA091FC4C849FEF1A3D8C99\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Dropbox/projects/code/monotextdisplay/source -BD:/Dropbox/projects/code/monotextdisplay/build/windows-msvc/shared-debug --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Dropbox/projects/code/monotextdisplay/build/windows-msvc/shared-debug/monotextdisplay.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

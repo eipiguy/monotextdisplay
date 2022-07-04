@@ -1,4 +1,10 @@
+#include <iostream>
+
 #include "text_canvas.hpp"
+#include "terminal_abstraction.hpp"
+
+using std::cout;
+using std::endl;
 
 TextCanvas :: Point :: Point(const size_t coordinate_value):
 column(coordinate_value), row(coordinate_value){}
@@ -30,9 +36,8 @@ min(min), num_columns(num_columns){
     data = string(num_columns * num_rows, ' ');
 }
 
-string TextCanvas :: TextTile :: operator[](const size_t row){
-    size_t row_start = row*num_columns;
-    return data.substr(row_start, row_start+num_columns-1);
+char* TextCanvas :: TextTile :: operator[](const size_t row){
+    return &data[row*num_columns];
 }
 
 size_t TextCanvas :: TextTile :: get_num_columns(){

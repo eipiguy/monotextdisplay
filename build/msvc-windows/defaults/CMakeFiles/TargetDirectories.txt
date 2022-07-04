@@ -1,3 +1,0 @@
-D:/Dropbox/projects/code/monotextdisplay/build/msvc-windows/defaults/CMakeFiles/monotextdisplay.dir
-D:/Dropbox/projects/code/monotextdisplay/build/msvc-windows/defaults/CMakeFiles/ALL_BUILD.dir
-D:/Dropbox/projects/code/monotextdisplay/build/msvc-windows/defaults/CMakeFiles/ZERO_CHECK.dir

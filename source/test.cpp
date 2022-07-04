@@ -1,4 +1,12 @@
+#include <stdio.h>
+#include <iostream>
+
 #include "test.hpp"
+#include "text_canvas.hpp"
+#include "terminal_abstraction.hpp"
+
+using std::cout;
+using std::endl;
 
 int main(int argc, char* argv[]){
     cout << endl << "Reprinting null terminated command line inputs, each on a separate line:" << endl; 
@@ -34,6 +42,10 @@ int main(int argc, char* argv[]){
     test_tile.row_num_fill();
     test_tile.print();
     cout << endl;
+
+    cout << "Testing getter for number of terminal rows and columns:" << endl;
+
+    cout << "Terminal is " << get_terminal_rows() << " rows by " << get_terminal_columns() << " columns" << endl;
 
     return 0;
 }

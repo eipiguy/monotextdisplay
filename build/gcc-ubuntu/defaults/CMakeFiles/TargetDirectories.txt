@@ -1,3 +1,0 @@
-/home/neal/Dropbox/projects/code/monotextdisplay/build/gcc-ubuntu/defaults/CMakeFiles/monotextdisplay.dir
-/home/neal/Dropbox/projects/code/monotextdisplay/build/gcc-ubuntu/defaults/CMakeFiles/edit_cache.dir
-/home/neal/Dropbox/projects/code/monotextdisplay/build/gcc-ubuntu/defaults/CMakeFiles/rebuild_cache.dir
