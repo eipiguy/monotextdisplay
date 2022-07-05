@@ -15,16 +15,22 @@ int main(int argc, char* argv[]){
         PrintNullTerminatedString(argv[i]);
         cout << endl;
     }
-    cout << endl << "End of inputs." << endl;
-    cout << endl;
+    cout << endl << "End of inputs." << endl << endl;
+
+    cout << "Testing getter for number of terminal rows and columns:" << endl;
+    cout << "Terminal is " << get_terminal_rows() << " rows by " << get_terminal_columns() << " columns" << endl;
+
     cout << "Initializing main canvas and test tile:" << endl;
     TextCanvas main_canvas;
-
-    TextCanvas::TextTile test_tile(TextCanvas::Point(0), 48);
+    TextCanvas::TextTile test_tile(
+        TextCanvas::Point(0),
+        get_terminal_rows(),
+        get_terminal_columns()-1
+    );
     main_canvas.active_tiles.push_back(&test_tile);
     cout << "Main canvas tile has " << main_canvas.active_tiles[0]->get_num_columns() << " columns" << endl;
 
-    cout << "Printing blank test tile from (0,0) to (48,48):" << endl;
+    cout << "Printing blank test tile:" << endl;
     test_tile.print();
     cout << endl;
 
@@ -43,9 +49,20 @@ int main(int argc, char* argv[]){
     test_tile.print();
     cout << endl;
 
-    cout << "Testing getter for number of terminal rows and columns:" << endl;
+    test_tile.fill(' ');
+    size_t num_rows = test_tile.get_num_rows();
+    size_t num_columns = test_tile.get_num_columns();
+    for(size_t current_row=0; current_row < num_rows; ++current_row){
+        test_tile.row_fill(current_row, '-');
+        test_tile.print();
+        test_tile.row_fill(current_row, ' ');
+    }
 
-    cout << "Terminal is " << get_terminal_rows() << " rows by " << get_terminal_columns() << " columns" << endl;
+    for(size_t current_column=0; current_column < num_columns; ++current_column){
+        test_tile.column_fill(current_column, '|');
+        test_tile.print();
+        test_tile.column_fill(current_column, ' ');
+    }
 
     return 0;
 }
