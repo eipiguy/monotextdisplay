@@ -4,6 +4,7 @@
 #include "terminal_abstraction.hpp"
 
 using std::cout;
+using std::clog;
 using std::endl;
 
 // Point
@@ -70,7 +71,10 @@ void TextCanvas :: TextTile :: row_fill(
     const size_t row_number,
     const char fill_char
 ){
-    for(size_t i=row_number*num_columns; i<num_columns; ++i){
+    //clog << "row number = " << row_number << ", num columns = " << num_columns << endl;
+    size_t start_id = row_number*num_columns;
+    size_t end_id = start_id + num_columns;
+    for(size_t i=start_id; i<end_id; ++i){
         data[i] = fill_char;
     }
 }
@@ -80,7 +84,9 @@ void TextCanvas :: TextTile :: column_fill(
     const char fill_char
 ){
     size_t num_rows = get_num_rows();
-    for(size_t i=column_number; i<num_rows; i+=num_columns){
+    //clog << "num rows = " << num_rows << ", num columns = " << num_columns << endl;
+    //clog << "column number = " << column_number << endl;
+    for(size_t i=column_number; i<data.length(); i+=num_columns){
         data[i] = fill_char;
     }
 }
@@ -123,8 +129,9 @@ void TextCanvas :: TextTile :: row_num_fill(){
 // ====
 
 void TextCanvas :: TextTile :: print(){
+    //std::clog << "num_columns = " << num_columns << endl;
     for(size_t i=0; i<data.length(); i+=num_columns){
-        //clog << "i = " << i << ", num_columns = " << num_columns << endl;
+        //std::clog << "i = " << i << ", num_columns = " << num_columns << endl;
         cout << data.substr(i,num_columns) << endl;
     }
 }

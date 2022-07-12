@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 #include "test.hpp"
 #include "text_canvas.hpp"
@@ -7,6 +9,8 @@
 
 using std::cout;
 using std::endl;
+
+#define MILLISECOND_DELAY 15
 
 int main(int argc, char* argv[]){
     cout << endl << "Reprinting null terminated command line inputs, each on a separate line:" << endl; 
@@ -55,13 +59,15 @@ int main(int argc, char* argv[]){
     for(size_t current_row=0; current_row < num_rows; ++current_row){
         test_tile.row_fill(current_row, '-');
         test_tile.print();
-        test_tile.row_fill(current_row, ' ');
+        std::this_thread::sleep_for(std::chrono::milliseconds(MILLISECOND_DELAY));
+        //test_tile.row_fill(current_row, ' ');
     }
 
     for(size_t current_column=0; current_column < num_columns; ++current_column){
         test_tile.column_fill(current_column, '|');
         test_tile.print();
-        test_tile.column_fill(current_column, ' ');
+        std::this_thread::sleep_for(std::chrono::milliseconds(MILLISECOND_DELAY));
+        //test_tile.column_fill(current_column, ' ');
     }
 
     return 0;
@@ -74,3 +80,5 @@ inline void PrintNullTerminatedString(const char* nullTerminatedString){
     }
     return;
 }
+
+#undef MILLISECOND_DELAY
